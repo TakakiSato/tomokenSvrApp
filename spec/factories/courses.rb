@@ -6,6 +6,12 @@ FactoryGirl.define do
     sequence(:course_id) {|n|n}
     user_id {Faker::Number.number(2)}
     course_name {Faker::Japanese::Name.name}
+    #other patten
+    factory :other_pattern_course do
+        sequence(:course_id) {|n|n}
+        user_id {Faker::Number.number(2)}
+    end
+
     #invalid param
     factory :nill_Course_course_id do
         course_id {""}

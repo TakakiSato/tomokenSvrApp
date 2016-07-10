@@ -3,10 +3,17 @@ require 'faker/japanese'
 
 FactoryGirl.define do
   factory :course_detail do
-    sequence(:course_detail_id) {|n|n}
+    #sequence(:course_detail_id) {|n|n}
     sequence(:course_id) {|n|n}
-    latitude {Faker::Address.latitude}
-    longitude {Faker::Address.longitude}
+    latitude (Faker::Address.latitude).to_s[0,16]
+    longitude (Faker::Address.longitude).to_s[0,16]
+    #other patten
+    factory :other_pattern_course_detail do
+        sequence(:course_detail_id) {|n|n}
+        sequence(:course_id) {|n|n}
+        latitude (Faker::Address.latitude).to_s[0,16]
+        longitude (Faker::Address.longitude).to_s[0,16]
+    end
     #invalid param
     factory :nill_CourseDetail_course_detail_id do
         course_detail_id {""}
@@ -21,10 +28,10 @@ FactoryGirl.define do
         longitude {""}
     end
     factory :invalid_CourseDetail_course_detail_id do
-        course_detail_id {Faker::Japanese::Name.name}
+        course_detail_id {"aaaaaaaaaaaa"}
     end
     factory :invalid_CourseDetail_course_id do
-        course_id {Faker::Address.latitude}
+        course_id (Faker::Address.latitude).to_s[0,16]
     end
     factory :invalid_CourseDetail_latitude do
         latitude {Faker::Japanese::Name.name}

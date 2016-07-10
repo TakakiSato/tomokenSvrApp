@@ -1,0 +1,117 @@
+//settingディレクトリ
+//変数 $名前:セットする値;
+//ボタンの背景色
+//ボタンの文字色
+//ホバー時の背景色、
+//ホバー時の文字色、
+//body背景色、
+//スマホ用文字サイズ、
+//パソコン用文字サイズ、
+//ロゴ用フォント
+//ロゴ文字色
+
+//変数 $名前:セットする値;
+$backgraund_color:#EEEEEE;
+$h2_backgraundcolor:#DDDDDD;
+$footer_backgraundcolor:#DDDDDD;
+$logo_font_color:#d50000;
+$button_backgraund_color:#d50000;
+$button_checked_backgraund_color:#a20000;
+$button_font_color:#ffffff;
+
+
+
+footer{
+  background-color: $footer_backgraundcolor;
+}
+
+//アコーディオンメニュー関連/////////////////////////
+.ui-accordion,.ui-accordion-header{
+box-shadow: 0 3px 0 #DDDDDD;
+}
+
+.ui-accordion-header:hover {
+background-color: $button_checked_backgraund_color;
+color: $button_font_color;
+box-shadow: 0 3px 0 #DDDDDD;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default.ui-state-active,
+.ui-widget-header .ui-state-active{
+  background-color: $button_backgraund_color;
+}
+
+
+
+//ボタン関連///////////////////////////////////
+div.check-group label {
+border: solid 1px #aaa;
+background: $button_backgraund_color;
+color:$button_font_color;
+}
+
+div.check-group input:checked+label {
+background: $button_checked_backgraund_color;
+}
+
+.button {
+background-color: $button_backgraund_color;
+border: 1px solid $button_backgraund_color;
+color: $button_font_color;
+box-shadow: 0 3px 0 #DDDDDD;
+}
+
+.button:hover {
+background-color: $button_checked_backgraund_color;
+box-shadow: 0 3px 0 #DDDDDD;
+color: $button_font_color;
+}
+
+//mypage関連/////////////////////////////////////////
+.mypage_compay_name{
+  a{
+    color: #d50000;
+  }
+}
+
+//table関連//////////////////////////////////////////
+.flag_table ,.search_condition_table{
+   td,th,tr {
+      border: 1px white solid;
+   }
+   tr:nth-child(2n) {
+    background-color: $h2_backgraundcolor;
+   }
+}
+
+
+//modal関連//////////////////////////////////////////
+
+.js-modal-content {
+    border:2px solid #aaa;
+    background:#fff;
+    color: black;
+}
+
+
+.js-modal-overlay {
+    background-color:rgba(0,0,0,0.75);
+}
+
+.js-modal-open {
+    color:#00f;
+    &:hover {
+      color:#f00;
+    }
+}
+
+
+.js-modal-close {
+    color:#00f;
+    &:hover {
+      color:#f00;
+    }
+}
+

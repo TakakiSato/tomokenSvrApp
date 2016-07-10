@@ -1,20 +1,20 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :courses
-  resources :course_details
-
-#get '/courses',to: 'courses#index',as: 'courses'
-#post '/courses',to: 'courses#create'
-#patch '/courses/:id',to: 'courses#update',as: 'course'
+#  resources :courses
+#  resources :course_details
+  root :to => 'courses#index'
+get '/courses',to: 'courses#index',as: 'courses'
+post '/courses',to: 'courses#create'
+patch '/courses/:course_id',to: 'courses#update',as: 'course'
 #put '/courses/:id',to: 'courses#update'
-#delete '/courses/:id', to: 'courses#destroy'
+delete '/courses/:course_id', to: 'courses#destroy'
 
-#get '/course_details',to: 'course_details#index',as: 'course_details'
-#post '/course_details',to: 'course_details#create'
-#patch '/course_details/:id',to: 'course_details#update',as: 'course_detail'
+get '/course_details/:course_id',to: 'course_details#index',as: 'course_details'
+post '/course_details/:course_id',to: 'course_details#create'
+patch '/course_details/:course_id/:course_detail_id',to: 'course_details#update',as: 'course_detail'
 #put '/course_details/:id',to: 'course_details#update'
-#delete '/course_details/:course_id/:course_details_id', to: 'course_details#destroy'
-delete '/course_details', to: 'course_details#destroy'
+delete '/course_details/:course_id/:course_details_id', to: 'course_details#destroy'
+#delete '/course_details', to: 'course_details#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

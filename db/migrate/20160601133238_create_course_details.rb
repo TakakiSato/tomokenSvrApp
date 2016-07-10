@@ -8,5 +8,14 @@ class CreateCourseDetails < ActiveRecord::Migration
       t.timestamps
     end
       add_index :course_details, [:course_detail_id, :course_id], unique: true, name: 'composit'
+      execute <<-SQL
+      CREATE TRIGGER PK_COMPOSIT_INCRIMENT BEFORE INSERT ON course_details
+       FOR EACH ROW BEGIN
+        DECLARE newid INT;
+        SELECT IFNULL(MAX(course_detail_id) + 1, 1) INTO @newid FROM course_details WHERE course_id = new.course_id;
+        SET new.course_detail_id = @newid;
+       END
+      SQL
+
   end
 end

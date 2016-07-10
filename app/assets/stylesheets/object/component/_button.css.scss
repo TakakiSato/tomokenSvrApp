@@ -1,0 +1,67 @@
+div.check-group input {
+cursor: pointer;
+display: none;
+}
+div.check-group label {
+padding: 5px 10px;
+margin-left: -1px;
+border-radius: 15px;
+text-align: center;
+}
+
+
+.button {
+display: block;
+border-bottom-right-radius: 15px;
+border-bottom-left-radius: 15px;
+border-top-right-radius: 15px;
+border-top-left-radius: 15px;
+-webkit-margin-before: 0.15em;
+padding: 10px;
+//押し込むアニメーション
+line-height: 26px;
+-webkit-transition: none;
+transition: none;
+text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+
+.button:hover {
+text-decoration: none;
+}
+
+.button:active {
+top: 3px;
+box-shadow: none;
+}
+
+.button-size{
+height: 53px;
+padding-left: 52px;
+width: 100%;
+}
+
+//ipad相当よりも小さい画面は以下の設定が有効となる。
+@media (max-width: 992px) {
+.button {
+h3{
+font-size:100%;
+}
+}
+
+//検索条件ボタン
+div.check-group label {
+}
+
+div.check-group-size label {
+padding: 55px 10px;
+height:150px;
+width:900px;
+}
+
+.button-size{
+height: 150px;
+font-size: 50px;
+padding-left: 110px;
+padding-top: 50px;
+}
+}

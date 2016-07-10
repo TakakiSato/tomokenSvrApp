@@ -3,20 +3,20 @@ require 'rails_helper'
 RSpec.describe CourseDetail, :type => :model do
     let(:course_detail){FactoryGirl.build(:course_detail)}
     subject {course_detail}
-    context 'make_search_conditionメソッドのテスト' do
-        context '外部キーのテスト' do
-            xit {}
-        end
+    context '外部キーのテスト' do
+        xit {}
+    end
+    context 'validationのテスト' do
         context '有効なパラメータでのテスト'do
             context 'course_detail_id,course_id,latitude,longitudeが有効な値の場合' do
                 it {is_expected.to be_valid}
             end
+            context 'course_detail_idがnullの場合' do
+                let(:course_detail){FactoryGirl.create(:nill_CourseDetail_course_detail_id)}
+                it {is_expected.to be_valid}
+            end
         end
         context '無効なパラメータでのテスト'do
-            context 'course_detail_idがnullの場合' do
-                let(:course_detail){FactoryGirl.build(:nill_CourseDetail_course_detail_id)}
-                it {is_expected.not_to be_valid}
-            end
             context 'course_idがnullの場合' do
                 let(:course_detail){FactoryGirl.build(:nill_CourseDetail_course_id)}
                 it {is_expected.not_to be_valid}
@@ -66,4 +66,10 @@ RSpec.describe CourseDetail, :type => :model do
             xit
         end
     end
+    context 'next_course_detail_idのテスト' do
+        #createしたときにcourse_detail_idを自動採番するメソッドのため、createできればOK
+        courseDetail=FactoryGirl.create(:course_detail)
+        it {expect(courseDetail.course_detail_id).to eq(courseDetail.course_detail_id)}
+    end
+
 end
