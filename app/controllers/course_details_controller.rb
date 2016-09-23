@@ -1,4 +1,6 @@
 class CourseDetailsController < ApplicationController
+    protect_from_forgery :except => [:index,:create,:update,:destroy]
+
     require 'upsert/active_record_upsert'
     def index
         begin
